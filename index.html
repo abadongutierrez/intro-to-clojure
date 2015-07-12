@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Intro to Clojure</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A brief introduction to the Clojure programming language">
+		<meta name="author" content="Rafael Guti&eactue;rrez">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -41,47 +41,265 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h1>Intro to Clojure</h1>
+					<h3>A brief introduction to the Clojure programming language</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by <a href="https://github.com/abadongutierrez">Rafael Guti&eacute;rrez</a> / <a href="http://twitter.com/abaddon_gtz">@abaddon_gtz</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<section>
+						<h2>What is Clojure?</h2>					
+						<p class="fragment">General Purpose Programming Language</p>
+						<p class="fragment">Dynamic</p>
+						<p class="fragment">Functional</p>
+						<p class="fragment">Lisp</p>
+						<p class="fragment">JVM/CRL/Javascript</p>
+						<p class="fragment">Homoiconic</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img width="480" height="362" src="http://i.giphy.com/i9nkolRQgbN9C.gif"/>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Clojure programs are represented by Clojure data structures</h4>
+						<h4>Code is data!</h4>
+					</section>
+				</section>
+
+				<section>
+					<h2>REPL</h2>
+					<p><span class="fragment">Read</span> <span class="fragment">Evaluate</span> <span class="fragment">Print</span> <span class="fragment">Loop</span></p>
+					<div class="fragment">
+						<pre><code data-trim contenteditable>
+	java -cp clojure.jar clojure.main					
+						</code></pre>
+						<pre><code data-trim contenteditable>
+	user=>					
+						</code></pre>
+					</div>
+					<p class="fragment">But lets use Sublime and SublimeREPL</p>
 				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h2>Data Types</h2>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+						<h3>Numbers</h3>
+						<p>Integers, doubles, floats and fractions</p>
+						<pre><code data-trim contenteditable>
+user=> 1
+user=> 1.0
+user=> 1/2
+user=> (/ 34 5)
+						</code></pre>
+						<pre><code data-trim contenteditable>
+user=> (int 1)
+user=> (long 1)
+user=> (float 1)
+user=> (double 1)
+						</code></pre>
+						<pre><code data-trim contenteditable>
+user=> (type 1)
+user=> (type 1.0)
+user=> (type 1/2)
+user=> (type (int 1))
+user=> (type (long 1))
+user=> (type (float 1))
+user=> (type (double 1))
+						</code></pre>
 					</section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
+						<h3>Booleans</h3>
+						<p><code>true</code> and <code>false</code></p>
+						<p><code>nil</code> values are evaluated as <code>false</code> (falsey).</p>
+						<pre><code data-trim contenteditable>
+user=> true
+user=> false
+user=> (false? nil)
+user=> (if nil "true" "false")
+						</code></pre>
+						<pre><code data-trim contenteditable>
+user=> (type true)
+user=> (type false)
+						</code></pre>
+					</section>
+					<section>
+						<h3>Strings</h3>
+						<p>Denoted by double quotes and can span multiple lines</p>
+						<pre><code data-trim contenteditable>
+user=> "this is a string"
+user=> (type "string")
+						</code></pre>
+					</section>
+					<section>
+						<h3>Characters</h3>
+						<p>Denoted by a forward slash</p>
+						<pre><code data-trim contenteditable>
+user=> \a
+user=> (type \a)
+user=> (char 64)
+						</code></pre>
+					</section>
+					<section>
+						<h3>Symbols</h3>
+						<p>Used to identify variables</p>
+						<pre><code data-trim contenteditable>
+user=> a
+user=> (type a)
+user=> (type (quote a))
+user=> (type 'a)
+user=> (symbol "a")
+						</code></pre>
+					</section>
+					<section>
+						<h3>Keywords</h3>
+						<p>Symbols that reference themselves and are denoted by a colon ':'; these are often used as keys in maps</p>
+						<pre><code data-trim contenteditable>
+user=> :a
+user=> (type :a)
+user=> (keyword "a")
+						</code></pre>
 					</section>
 				</section>
 
 				<section>
-					<h2>Slides</h2>
+					<section>
+						<h2>Collections</h2>
+					</section>
+
+					<section>
+						<h3>Lists</h3>
+						<p>Lists are collections of things</p>
+						<p>Those things come in a given order</p>
+						<pre><code data-trim contenteditable>
+user=> (quote (1 :a "item"))
+user=> '(1 :a "item")
+user=> (list 1 :a "item")
+						</code></pre>
+						<div class="fragment"?>
+							<p>Lists are 'linked' lists</p>
+							<pre><code data-trim contenteditable>
+user=> (first (list 1 :a "item"))
+user=> (rest (list 1 :a "item"))
+							</code></pre>
+						</div>
+						<div class="fragment"?>
+							<p><code>nil</code> is the end of the list</p>
+							<pre><code data-trim contenteditable>
+user=> (first (rest (rest (rest (list 1 :a "item")))))
+							</code></pre>
+						</div>
+						<div class="fragment"?>
+							<p>Building a list</p>
+							<pre><code data-trim contenteditable>
+user=> (cons :item '())
+user=> (cons 1 nil)
+user=> (cons "string" (cons :item (cons 5 nil)))
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<h3>Vectors</h3>
+						<p>Like 'arrays' because they have index access</p>
+						<pre><code data-trim contenteditable>
+user=> [1 :item "string"]
+user=> (first [1 :item "string"])
+user=> (rest [1 :item "string"])
+						</code></pre>
+					<div class="fragment"?>	
+						<p>Access by index</p>
+						<pre><code data-trim contenteditable>
+user=> (nth [1 :item "string"] 2)
+						</code></pre>
+					</div>
+					<div class="fragment"?>	
+						<p>Building a vector</p>
+						<pre><code data-trim contenteditable>
+user=> (cons 1/2 [1 :item "string"])
+user=> (vector (cons 1/2 [1 :item "string"]))
+						</code></pre>
+					</div>
+					<div class="fragment"?>	
+						<p>Using conj[oin] function</p>
+						<pre><code data-trim contenteditable>
+user=> (conj [1 :item "string"] 1/2)
+user=> (conj '(1 :item "string") 1/2)
+						</code></pre>
+					</div>
+					</section>
+					<section>
+						<h3>Maps</h3>
+						<p>Key-value pairs of data</p>
+						<pre><code data-trim contenteditable>
+user=> {:name "Your name" :last-name "Your lastname"}
+						</code></pre>
+						<div class="fragment"?>	
+							<p>Getting a value</p>
+							<pre><code data-trim contenteditable>
+user=> (get {:name "tomato" :price 1.25} :price)
+user=> (get {:name "tomato" :price 1.25} :weight "Not found")
+user=> (:price {:name "tomato" :price 1.25})
+							</code></pre>
+						</div>
+						<div class="fragment"?>	
+							<p>Building a Map</p>
+							<pre><code data-trim contenteditable>
+user=> (assoc {:name "tomato" :price 1.25} :weight {:quantity 4 :unit :ounces})
+user=> (dissoc {:name "tomato" :price 1.25 :weight {:quantity 4 :unit :ounces}} :name)
+user=> (merge {:name "tomato"} {:price 1.25} {:weight {:quantity 4 :unit :ounces}})
+							</code></pre>
+						</div>
+						<div class="fragment"?>	
+							<p>Values and Keys</p>
+							<pre><code data-trim contenteditable>
+user=> (keys {:name "tomato" :price 1.25})
+user=> (vals {:name "tomato" :price 1.25})
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<h3>Sets</h3>
+						<p>Collections of elements with no duplicates</p>
+						<pre><code data-trim contenteditable>
+user=> #{:apple :banana :melon :blue-berry :apple}
+user=> #{:apple :banana :melon :blue-berry}
+						</code></pre>
+						<div class="fragment"?>	
+							<p>Getting a value</p>
+							<pre><code data-trim contenteditable>
+user=> (get #{:apple :banana :melon :blue-berry} :banana)
+user=> (#{:apple :banana :melon :blue-berry} :banana)
+							</code></pre>
+						</div>
+						<div class="fragment"?>	
+							<p>Building a Set</p>
+							<pre><code data-trim contenteditable>
+user=> (conj #{:apple :banana :melon :blue-berry} :black-berry)
+user=> (disj #{:apple :banana :melon :blue-berry} :melon)
+							</code></pre>
+						</div>
+						<div class="fragment"?>	
+							<p>Interesting operations</p>
+							<pre><code data-trim contenteditable>
+user=> (clojure.set/union #{:r :b :w} #{:w :p :y})
+user=> (clojure.set/difference #{:r :b :w} #{:w :p :y})
+user=> (clojure.set/intersection #{:r :b :w} #{:w :p :y})
+							</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h2>Binding symbols to values</h2>
 					<p>
 						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
 					</p>

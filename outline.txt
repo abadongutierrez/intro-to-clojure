@@ -1,0 +1,17 @@
+Clojure is a general programing languge that means you can develop anything with clojure.
+
+Clojure is dynamic.
+You can define functions at runtime
+You can use Clojure as an scripting programming language
+You can generate clojure code using Macros
+Code is data, data is code
+
+Clojure is Functional.
+Avoid mutable state
+Functions as first-class objects
+Recursive iteration over side-effect looping
+
+Based on Lisp
+
+Clojure is a homoiconic language
+which is a fancy term describing the fact that Clojure programs are represented by Clojure data structures.
