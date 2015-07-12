@@ -1,3 +1,7 @@
+# Intro to Clojure
+
+## What is Clojure?
+
 Clojure is a general programing languge that means you can develop anything with clojure.
 
 Clojure is dynamic.
@@ -15,3 +19,8 @@ Based on Lisp
 
 Clojure is a homoiconic language
 which is a fancy term describing the fact that Clojure programs are represented by Clojure data structures.
+
+## Collections
+
+### Maps
+clojure.lang.PersistentArrayMap
