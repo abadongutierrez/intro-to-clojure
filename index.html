@@ -307,8 +307,81 @@ user=> (clojure.set/intersection #{:r :b :w} #{:w :p :y})
 				<section>
 					<h2>Binding symbols to values</h2>
 					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+						Clojure symbols refer to values.
 					</p>
+					<pre><code data-trim contenteditable>
+user=> (def my-vector [1 2 3])
+					</code></pre>
+					<div class="fragment"?>
+						<p>What if I dont need a temporary var?</p>
+						<pre><code data-trim contenteditable>
+user=> (let [msg "Say Hello"] (println msg))
+					</code></pre>
+					</div>
+					<div class="fragment"?>
+						<p>What happens in <code>let</code>, stays in <code>let</code></p>
+						<pre><code data-trim contenteditable>
+user=> (def my-number 1)
+user=> (let [my-number 2] (println my-number))
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Functions</h2>
+					<p>
+						Declaring a funcion with <code>fn</code>
+					</p>
+					<pre><code data-trim contenteditable>
+user=> (fn [])
+user=> ((fn []))
+user=> ((fn [] "Hello"))
+user=> (def say-hello (fn [] "Hello"))
+user=> (say-hello)
+user=> #("Hello")
+user=> (#("Hello"))
+user=> (#(str "Hello"))
+					</code></pre>
+					<div class="fragment"?>
+						<p>Using <code>defn</code></p>
+						<pre><code data-trim contenteditable>
+user=> (defn sum [a b] (+ a b))
+user=> (sum 1 2)
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Namespaces</h2>
+					<p>
+						To keep everything organized and group similar funtionality
+					</p>
+					<pre><code data-trim contenteditable>
+user=> (ns com.nearsoft)
+com.nearsoft=> (def my-email "rgutierrez@nearsoft.com")
+com.nearsoft=> my-email
+com.nearsoft=> com.nearsoft/my-email
+com.nearsoft=> *ns*
+com.nearsoft=> (ns user)
+user=> com.nearsoft/my-email
+					</code></pre>
+					<div class="fragment"?>
+						<p>Accesing symbols in namespaces with <code>require</code></p>
+						<pre><code data-trim contenteditable>
+user=> (require 'com.nearsoft)
+user=> (require '[com.nearsoft :as ns])
+user=> (require '[com.nearsoft :refer [my-email]])
+user=> (require '[com.nearsoft :refer :all)
+					</code></pre>
+					</div>
+					<div class="fragment"?>
+						<p>Using <code>require</code> inside <code>ns</code></p>
+						<pre><code data-trim contenteditable>
+user=> (ns com.acme
+		(:require [com.nearsoft :refer :all]))
+com.acme=> my-email
+					</code></pre>
+					</div>
 				</section>
 
 				<section>
